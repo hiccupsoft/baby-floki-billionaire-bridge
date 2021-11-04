@@ -14,7 +14,7 @@ function App() {
   const { login, logout } = useAuth()
   const [account, setAccount] = useState();
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "spaceBetween", height: "100vh" }}>
       <NavBar account={account} isOpen={isOpen} setOpen={setOpen} setAccount={setAccount} />
       <Router>
         <Switch>
