@@ -18,7 +18,7 @@ const ConnectModal: React.FC<Props> = ({ open, setOpen, login, account, setAccou
     const [id, setId] = useState(-1);
     return (
         <Modal open={open} onClose={() => setOpen(false)}>
-            <Container bgcolor='white' fontFamily='Poppins' color='white'>
+            <Container bgcolor='black' fontFamily='Poppins' color='black'>
                 <Wrapper display='flex' flexDirection='column' justifyContent='center' alignItems='center' bgcolor='topbarbg.main'>
                     <Box color='rgb(69, 42, 165)' fontSize='18px' fontWeight='700' lineHeight='120%' width='100%'
                         display='flex' justifyContent='space-between'

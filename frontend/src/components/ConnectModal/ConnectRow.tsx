@@ -61,7 +61,7 @@ const ConnectRow: React.FC<Props> = ({ login, walletConfig, focus, id, name, ico
             <Box display='flex' alignItems='center'>
                 <Box color='rgb(58, 193, 97)' ml='15px' letterSpacing='1px'>{name}</Box>
             </Box>
-            <Box width='40px' height='40px' borderRadius='50%' bgcolor='white' display='flex' justifyContent='center' alignItems='center'>
+            <Box width='40px' height='40px' borderRadius='50%' bgcolor='black' display='flex' justifyContent='center' alignItems='center'>
                 <img src={icon} alt='connection-icon' />
             </Box>
         </StyledContainer>

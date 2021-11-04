@@ -21,13 +21,13 @@ export default function Footer() {
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <IoEarth style={{ fontSize: "25px", color: "white" }} />&nbsp;
+                                        <IoEarth style={{ fontSize: "25px", color: "black" }} />&nbsp;
                                     </InputAdornment>
                                 ),
-                                style: { color: "white" }
+                                style: { color: "black" }
                             }}
                             value={10}
-                            sx={{ color: "white", border: "1px solid white", borderRadius: "5px" }}
+                            sx={{ color: "black", border: "1px solid black", borderRadius: "5px" }}
                             variant = "outlined"
                         >
                             <MenuItem value={10}>English</MenuItem>

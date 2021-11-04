@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     }
     html, body {
         height: 100%;
-        background-color: #000e1d;
+        background-color: #FFFFFF;
     }
     * {
         font-family: SFProDisplayRegular;

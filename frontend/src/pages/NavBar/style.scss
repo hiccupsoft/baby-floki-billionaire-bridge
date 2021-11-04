@@ -1,9 +1,13 @@
+body {
+    margin: 0px;
+}
+
 .navbar{
     height : 70px;
     width: 100%;
     top : 0;
     position: fixed;
-    background-color: #000e1d;
+    background-color: #FFFFFF;
 }
 .navbarbody{
     padding : 0 25px;
@@ -15,7 +19,7 @@
 .logobody{
     display: flex;
     font-size: 18px;
-    color: white;
+    color: black;
     align-items: center;
     height: 100%;
 }
@@ -24,7 +28,7 @@
 }
 .logotitle{
     padding-left: 8px;
-    color: rgb(240, 185, 11);
+    color: #EF4444;
     font-weight: 700;
 }
 .navconnect{
@@ -33,7 +37,7 @@
     border-radius: 10px;
     border: 70px;
     font-size: 14px;
-    background-color: rgb(240, 185, 11);
+    background-color: #EF4444;
     cursor: pointer;
 }
 
@@ -41,4 +45,4 @@
     .binancelink{
         display: none;
     }
-  }
+}

@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     // padding-top: 70px;
-    background-color: #000e1d;
+    background-color: #FFFFFF;
     width : 100%;
 }
 .bridge {
     padding : 50px 50px 0px 50px;;
     color: #ef4444;
-    background: #000e1d;
+    background: #FFFFFF;
     border-radius: 50px;
     // width: 85%;
     width : 100%;
@@ -40,8 +40,8 @@
     padding : 10px 20px;
     align-items: center;
     margin-top: 5px; 
-    color : white; 
-    border : 1px solid white;
+    color : black; 
+    border : 1px solid black;
 }
 .assets{
     display: flex;
@@ -61,7 +61,7 @@
 }
 .arrow{
     font-size : 20px;
-    color : white;
+    color : black;
     height : fit-content;
     padding :10px 13px;
     border-radius: 10px;
@@ -78,8 +78,8 @@
     width: 100%;
     margin-top: 10px;
     border-radius: 10px!important;
-    border : 1px solid white;
-    color : white!important;
+    border : 1px solid black;
+    color : black!important;
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
@@ -96,7 +96,7 @@
 }
 .receive{
     margin-top: 10px;
-    color : white;
+    color : black;
 }
 .amount{
     margin-top: 20px;
@@ -117,14 +117,14 @@
     background-color: #ef4444;
     margin-top : 30px;
     margin-bottom: 30px;
-    color : white;
+    color : black;
     font-size: 16px;
     min-width: 200px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 .connect:hover{
     color : #ef4444;
-    background-color: white;
+    background-color: black;
 }
 
 @media screen and (max-width: 900px) {

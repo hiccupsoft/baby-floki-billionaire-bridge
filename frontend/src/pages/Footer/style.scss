@@ -2,9 +2,9 @@
     padding : 30px 40px;
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: black;
     font-size: 20px;
-    background-color: #000e1d;
+    background-color: #FFFFFF;
 }
 .footericon{
     border-radius: 50%;
@@ -17,12 +17,12 @@
     cursor : pointer;
     font-size: 25px;
     margin-right: 30px;
-    border : 1px solid white;
+    border : 1px solid black;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 .footericon:hover{
     color : #ef4444;
-    background-color: white;
+    background-color: black;
 }
 .icons{
     display: flex;
@@ -32,7 +32,7 @@
 }
 .select{
     height: 50px;
-    color : white;
+    color : black;
 }
 @media screen and (max-width: 700px) {
     .footer {

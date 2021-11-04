@@ -197,7 +197,7 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
                         <BridgePaper index={to} handleClose={handleToClose} />
                     </Box>
                 </Box>
-                <Box className="sendetail">If you have not add Binance Smart Chain network in your MetaMask yet, please click <button style={{ color: "white", backgroundColor: "#ef4444", padding: "6px", borderRadius: "6px", border: "none", cursor: "pointer" }}>Add network</button> and continue</Box>
+                <Box className="sendetail">If you have not add Binance Smart Chain network in your MetaMask yet, please click <button style={{ color: "black", backgroundColor: "#ef4444", padding: "6px", borderRadius: "6px", border: "none", cursor: "pointer" }}>Add network</button> and continue</Box>
                 <Box className="amount">
                     <Box>Amount</Box>
                     <OutlinedInput className="amountinput" type="number" value={amountValue}
