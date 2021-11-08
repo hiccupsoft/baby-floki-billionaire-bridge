@@ -14,7 +14,7 @@ const walletconnect = new WalletConnectConnector({
   rpc: { [chainId]: rpcUrl } as string,
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
-  pollingInterval: POLLING_INTERVAL,
+  // pollingInterval: POLLING_INTERVAL,
 })
 
 const bscConnector = new BscConnector({ supportedChainIds: [chainId] })
