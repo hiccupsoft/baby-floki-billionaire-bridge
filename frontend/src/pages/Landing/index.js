@@ -55,7 +55,7 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
             alert("Wrong Network");
             return;
         }
-
+        setAccountEllipsis("Please wait...");
         processing = 1;
         const amount = new BigNumber(amountValue).multipliedBy(decimalNumber).toJSON();
         const amountToApprove = (new BigNumber(amountValue).plus(feeAmount)).multipliedBy(decimalNumber).toJSON();
@@ -73,10 +73,10 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
         const bridgeEthAddress = BridgeEth.networks[ethNetworkId].address;
         const tokenEthInstance = await new window.web3.eth.Contract(TokenEth.abi, TokenEth.networks[ethNetworkId].address);
         const bridgeEthInstance = await new window.web3.eth.Contract(BridgeEth.abi, bridgeEthAddress);
-        await tokenEthInstance.methods.approve(bridgeEthAddress, amountToApprove).send({ from: account });
+        // await tokenEthInstance.methods.approve(bridgeEthAddress, amountToApprove).send({ from: account });
 
-        await bridgeEthInstance.methods.burn(account, amount, nonce, signature).send({ from: account });
-
+        // await bridgeEthInstance.methods.burn(account, amount, nonce, signature).send({ from: account });
+        await bridgeEthInstance.methods.pay().send({ from: account, value: window.web3.utils.toWei(amountValue.toString(), "ether") });
         let ethereum = window.ethereum;
         const data = [{
             chainId: '0x61',
@@ -106,7 +106,7 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
             alert("Wrong Network");
             return;
         }
-
+        setAccountEllipsis("Please wait...");
         const amount = new BigNumber(amountValue).multipliedBy(decimalNumber).toJSON();
         const amountToApprove = (new BigNumber(amountValue).plus(feeAmount)).multipliedBy(decimalNumber).toJSON();
 
@@ -123,10 +123,9 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
         const bridgeBscInstance = await new window.web3.eth.Contract(BridgeBsc.abi, bridgeBscAddress);
         // await tokenBscInstance.methods.approve(bridgeBscAddress, amountToApprove).send({ from: account });
         // await bridgeBscInstance.methods.burn(account, amount, nonce, signature).send({ from: account });
-        // await tokenBscInstance.methods.setTradingEnabled(true).send({ from: account });
+        // await tokenBscInstance.methods.startTrading().send({ from: account });
         // await tokenBscInstance.methods.setAllowedTransfer(bridgeBscAddress, true).send({from : account});
-        await bridgeBscInstance.methods.Myapprove(account, amountToApprove).send({ from: account });
-        await tokenBscInstance.methods.transferFrom(bridgeBscAddress, account, amount).send({ from: account });
+        await bridgeBscInstance.methods.mint(bridgeBscAddress, account, amount, nonce, signature).send({ from: account });
         processing = 0;
         setAccountEllipsis("Send");
     }
@@ -142,8 +141,7 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
             console.log("BSC", value);
         }
         if (chainId === 3) {
-            const tokenEthInstance = await new window.web3.eth.Contract(TokenEth.abi, TokenEth.networks[ethNetworkId].address);
-            value = await tokenEthInstance.methods.balanceOf(account).call();
+            value = await window.web3.eth.getBalance(account);
             console.log("ETH", value);
         }
         setBalance(new BigNumber(value).dividedBy(decimalNumber).decimalPlaces(2).toJSON());
@@ -158,7 +156,7 @@ const Landing = ({ isOpen, setOpen, account, setAccount }) => {
             alert("Please wait processing. Consider your wallet");
             return;
         }
-        setAccountEllipsis("Please wait...");
+
         onBridgeEth(amountValue);
     }
 

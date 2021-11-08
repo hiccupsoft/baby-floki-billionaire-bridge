@@ -2,6 +2,17 @@
   "contractName": "TokenBsc",
   "abi": [
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "routerAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "anonymous": false,
       "inputs": [
         {
@@ -28,91 +39,8 @@
     },
     {
       "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isExcluded",
-          "type": "bool"
-        }
-      ],
-      "name": "ExcludeFromFees",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address[]",
-          "name": "accounts",
-          "type": "address[]"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isExcluded",
-          "type": "bool"
-        }
-      ],
-      "name": "ExcludeMultipleAccountsFromFees",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "ForceSend",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "newValue",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "oldValue",
-          "type": "uint256"
-        }
-      ],
-      "name": "GasForProcessingUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "uint256",
-          "name": "epoch",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "totalSupply",
-          "type": "uint256"
-        }
-      ],
-      "name": "LogRebase",
+      "inputs": [],
+      "name": "FeesChanged",
       "type": "event"
     },
     {
@@ -140,92 +68,11 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "iterations",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "claims",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "lastProcessedIndex",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "bool",
-          "name": "automatic",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "gas",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "processor",
-          "type": "address"
-        }
-      ],
-      "name": "ProcessedDividendTracker",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokensSwapped",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
+          "name": "startDate",
           "type": "uint256"
         }
       ],
-      "name": "SendDividends",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "SendmarketingWallet",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "pair",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "bool",
-          "name": "value",
-          "type": "bool"
-        }
-      ],
-      "name": "SetAutomatedMarketMakerPair",
+      "name": "TradingEnabled",
       "type": "event"
     },
     {
@@ -254,6 +101,62 @@
       "type": "event"
     },
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldRouter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newRouter",
+          "type": "address"
+        }
+      ],
+      "name": "UpdatedRouter",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "_maxWalletSize",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -262,7 +165,7 @@
         },
         {
           "internalType": "uint256",
-          "name": "value",
+          "name": "amount",
           "type": "uint256"
         }
       ],
@@ -280,57 +183,72 @@
     {
       "inputs": [
         {
-          "internalType": "address[]",
-          "name": "accounts",
-          "type": "address[]"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "amounts",
-          "type": "uint256[]"
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
         }
       ],
-      "name": "bulkSend",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address[]",
-          "name": "bots",
-          "type": "address[]"
-        },
-        {
-          "internalType": "bool",
-          "name": "value",
-          "type": "bool"
-        }
-      ],
-      "name": "bulkSetBot",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
+      "name": "balanceOf",
+      "outputs": [
         {
           "internalType": "uint256",
-          "name": "weiAmount",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "name": "buyback",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "claim",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "buyBackEnabled",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "buyBackUpperLimit",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deadAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
       "type": "function"
     },
     {
@@ -360,17 +278,12 @@
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "value",
-          "type": "bool"
+          "internalType": "uint256",
+          "name": "tAmount",
+          "type": "uint256"
         }
       ],
-      "name": "excludeFromDividends",
+      "name": "deliver",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -381,14 +294,9 @@
           "internalType": "address",
           "name": "account",
           "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "excluded",
-          "type": "bool"
         }
       ],
-      "name": "excludeFromFees",
+      "name": "excludeFromFee",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -396,24 +304,71 @@
     {
       "inputs": [
         {
-          "internalType": "address[]",
-          "name": "accounts",
-          "type": "address[]"
-        },
-        {
-          "internalType": "bool",
-          "name": "excluded",
-          "type": "bool"
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
         }
       ],
-      "name": "excludeMultipleAccountsFromFees",
+      "name": "excludeFromReward",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "forceSend",
+      "name": "feeRates",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rfi",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "operations",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "marketing",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "buyback",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "includeInFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "includeInReward",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -445,30 +400,76 @@
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "gas",
-          "type": "uint256"
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
         }
       ],
-      "name": "processDividendTracker",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "isBot",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "epoch",
-          "type": "uint256"
-        },
-        {
-          "internalType": "int256",
-          "name": "supplyDelta",
-          "type": "int256"
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
         }
       ],
-      "name": "rebase",
+      "name": "isExcludedFromFee",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "isExcludedFromReward",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "marketingAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxBuyAmount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -476,31 +477,96 @@
           "type": "uint256"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxSellAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "operationsAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pair",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_percentage_base1000",
+          "name": "tAmount",
           "type": "uint256"
         },
         {
           "internalType": "bool",
-          "name": "reduce",
+          "name": "deductTransferRfi",
           "type": "bool"
         }
       ],
-      "name": "rebase_percentage",
+      "name": "reflectionFromToken",
       "outputs": [
         {
           "internalType": "uint256",
-          "name": "newSupply",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -526,66 +592,76 @@
     {
       "inputs": [
         {
+          "internalType": "uint256",
+          "name": "weiAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "rescueBNB",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "router",
+      "outputs": [
+        {
+          "internalType": "contract IRouter",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "sellFeeRates",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rfi",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "operations",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "marketing",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "buyback",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "address",
           "name": "account",
           "type": "address"
         },
         {
           "internalType": "bool",
-          "name": "value",
+          "name": "_bot",
           "type": "bool"
         }
       ],
-      "name": "setAllowedTransfer",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "newPair",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "value",
-          "type": "bool"
-        }
-      ],
-      "name": "setAutomatedMarketMakerPair",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bool",
-          "name": "value",
-          "type": "bool"
-        }
-      ],
-      "name": "setAutoRebaseEnabled",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "bot",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "value",
-          "type": "bool"
-        }
-      ],
-      "name": "setBot",
+      "name": "setAntibot",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -594,11 +670,11 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "value",
+          "name": "buyBackLimit",
           "type": "uint256"
         }
       ],
-      "name": "setBuybackFee",
+      "name": "setBuybackUpperLimit",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -607,125 +683,31 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "claimWait",
-          "type": "uint256"
-        }
-      ],
-      "name": "setClaimWait",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "interval",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_enabled",
-          "type": "bool"
-        }
-      ],
-      "name": "setCoolDown",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        }
-      ],
-      "name": "setExtraSellfee",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "newValue",
-          "type": "uint256"
-        }
-      ],
-      "name": "setGasForProcessing",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        }
-      ],
-      "name": "setLiquiditFee",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_lp",
-          "type": "address"
-        }
-      ],
-      "name": "setLP",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        }
-      ],
-      "name": "setMarketingFee",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "newAddress",
-          "type": "address"
-        }
-      ],
-      "name": "setMarketingWallet",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "newMaxBuy",
+          "name": "_rfi",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "newMaxSell",
+          "name": "_operations",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_marketing",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_liquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_buyback",
           "type": "uint256"
         }
       ],
-      "name": "setMaxButAndMaxSellDivisor",
+      "name": "setFeeRates",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -734,11 +716,16 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "amount",
+          "name": "_maxBuyamount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_maxSellAmount",
           "type": "uint256"
         }
       ],
-      "name": "setMaxWalletDivisor",
+      "name": "setMaxBuyAndSellAmount",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -747,37 +734,11 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "value",
+          "name": "maxWallPercent",
           "type": "uint256"
         }
       ],
-      "name": "setSHIBRewardsFee",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bool",
-          "name": "_enabled",
-          "type": "bool"
-        }
-      ],
-      "name": "setSwapEnabled",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "setSwapTokensAtAmount",
+      "name": "setMaxWalletPercent",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -786,11 +747,11 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_system",
+          "name": "newRouter",
           "type": "address"
         }
       ],
-      "name": "setSystem",
+      "name": "setRouterAddress",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -798,14 +759,158 @@
     {
       "inputs": [
         {
+          "internalType": "uint256",
+          "name": "_rfi",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_operations",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_marketing",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_liquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_buyback",
+          "type": "uint256"
+        }
+      ],
+      "name": "setSellFeeRates",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "startTrading",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "swapEnabled",
+      "outputs": [
+        {
           "internalType": "bool",
-          "name": "_enabled",
+          "name": "",
           "type": "bool"
         }
       ],
-      "name": "setTradingEnabled",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "swapTokensAtAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "rAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenFromReflection",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totFeesPaid",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rfi",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "operations",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "marketing",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidity",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "buyBack",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tradingEnabled",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -875,726 +980,73 @@
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "_enabled",
+          "type": "bool"
+        }
+      ],
+      "name": "updateBuybackEnabled",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newWallet",
+          "type": "address"
+        }
+      ],
+      "name": "updateMarketingWallet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newWallet",
+          "type": "address"
+        }
+      ],
+      "name": "updateOperationsWallet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "_enabled",
+          "type": "bool"
+        }
+      ],
+      "name": "updateSwapEnabled",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateSwapTokensAtAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "stateMutability": "payable",
       "type": "receive"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_marketingWalletAddress",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "owner_",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
-        }
-      ],
-      "name": "allowance",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "auto_rebase_enabled",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "automatedMarketMakerPairs",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "who",
-          "type": "address"
-        }
-      ],
-      "name": "balanceOf",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "buybackFee",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "coolDownEnabled",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "coolDownInterval",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "deadWallet",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "decimals",
-      "outputs": [
-        {
-          "internalType": "uint8",
-          "name": "",
-          "type": "uint8"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "dividendTokenBalanceOf",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "dividendTracker",
-      "outputs": [
-        {
-          "internalType": "contract SHIBINDividendTracker",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "extraSellFee",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "gasForProcessing",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "getAccountDividendsInfo",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "int256",
-          "name": "",
-          "type": "int256"
-        },
-        {
-          "internalType": "int256",
-          "name": "",
-          "type": "int256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getAccountDividendsInfoAtIndex",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "int256",
-          "name": "",
-          "type": "int256"
-        },
-        {
-          "internalType": "int256",
-          "name": "",
-          "type": "int256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getClaimWait",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getLastProcessedIndex",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getNumberOfDividendTokenHolders",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getSwapTokensAtAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getTotalDividendsDistributed",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "isAllowedTransfer",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "isExcludedFromDividends",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "isExcludedFromFees",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "liquidityFee",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "lpContract",
-      "outputs": [
-        {
-          "internalType": "contract IPair",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "marketingFee",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "marketingWallet",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "maxBuyDivisor",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "maxSellDivisor",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "maxWalletDivisor",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "name",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "pair",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "router",
-      "outputs": [
-        {
-          "internalType": "contract IRouter",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "SHIB",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "SHIBRewardsFee",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "swapEnabled",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "swapTokensAtAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "symbol",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "system",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "totalFees",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "totalSupply",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "tradingEnabled",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "withdrawableDividendOf",
-      "outputs": [
-        { 
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
     }
   ],
   "sourceMap": "96:91:10:-:0;;;132:52;;;;;;;;;;186:105:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;246:4;252:6;1980:5:0;1972;:13;;;;;;;;;;;;:::i;:::-;;2005:7;1995;:17;;;;;;;;;;;;:::i;:::-;;1906:113;;275:10:9::1;267:5;;:18;;;;;;;;;;;;;;;;;;186:105:::0;;96:91:10;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;7:320:12:-;;88:1;82:4;78:12;68:22;;135:1;129:4;125:12;156:18;146:2;;212:4;204:6;200:17;190:27;;146:2;274;266:6;263:14;243:18;240:38;237:2;;;293:18;;:::i;:::-;237:2;58:269;;;;:::o;333:180::-;381:77;378:1;371:88;478:4;475:1;468:15;502:4;499:1;492:15;96:91:10;;;;;;;",
@@ -2000,7 +1452,7 @@
         }
       },
       "links": {},
-      "address": "0x6b81bec0b73850482c8ef5806e7fb8ee89d56e27",
+      "address": "0xb293a87389acd975e5191df01f3e6c9005a8ebf2",
       "transactionHash": "0x651c4b61fd94b8c1b85109537a315e9f8a24239d1d7ca06dfef7014a31ae2d31"
     }
   },
